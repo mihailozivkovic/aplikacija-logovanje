@@ -22,7 +22,9 @@ router.get("/create/proizvod",(req,res)=>{
     
 });
 
-//router.post("/create/proizvod/save",require("../controllers/admin/createProizvod"));
+router.get("/delete/user/:userId",require("../controllers/admin/deleteUserController"));
+
+router.post("/create/proizvod/save",require("../controllers/admin/createProizvod"));
 
 
 

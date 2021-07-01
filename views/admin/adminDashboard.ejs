@@ -374,7 +374,7 @@
                                             <span class="text-muted float-end">April 14, 2021</span>
                                             <button type="button" class="btn btn-cyan btn-sm text-white">Edit</button>
                                             <button type="button" class="btn btn-success btn-sm text-white">Publish</button>
-                                            <button type="button" class="btn btn-danger btn-sm text-white">Delete</button>
+                                            <button type="button" class="btn btn-danger btn-sm delete-user-btn text-white" data-id="<%=operateri[i]._id %>">Delete</button>
                                         </div>
                                     </div>
                                 </div>
@@ -919,7 +919,22 @@
     <script src="../../assets/libs/flot/jquery.flot.crosshair.js"></script>
     <script src="../../assets/libs/flot.tooltip/js/jquery.flot.tooltip.min.js"></script>
     <script src="../../dist/js/pages/chart/chart-page-init.js"></script>
-
+    <script>
+        $(".delete-user-btn").on('click',function(){
+            let id=$(this).attr("data-id");
+            let potvrda=confirm("Da li ste sigurni?");
+            if(potvrda){
+                $.ajax({
+                    url:`/admin/delete/user/${id}`
+                })
+                .then(res=>{
+                    if(res == "Ok"){
+                        window.location.href="/admin";
+                    }
+                })
+            }
+        })
+    </script>
 </body>
 
 </html>
