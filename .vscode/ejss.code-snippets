@@ -1,0 +1,7 @@
+
+	"ejs": {
+		"prefix": "ee",
+		"body": ["<% ${1} %>"],
+		"description": "open ejs tags"
+	}
+}

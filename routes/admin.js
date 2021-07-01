@@ -8,9 +8,22 @@ router.get("/create",(req,res)=>{
 })
 
 router.post("/create/save",require("../controllers/admin/saveController"));
+
+
+
 router.get("/create/grad",(req,res)=>{
     res.render("admin/createGrad")
-})
+});
+router.post("/create/grad/save",require("../controllers/admin/createGrad"));
+
+
+router.get("/create/proizvod",(req,res)=>{
+    res.render("admin/createProizvod");
+    
+});
+
+//router.post("/create/proizvod/save",require("../controllers/admin/createProizvod"));
+
 
 
 module.exports=router;
