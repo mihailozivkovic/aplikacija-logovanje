@@ -9,7 +9,14 @@ const saveController=(req,res)=>{
     let password=req.body.password;
     let role=req.body.role;
 
-    console.log(firstName,lastName,password,role);
+   db.users.insert({first_name:firstName,last_name:lastName,password:password,role:role},(err,docs)=>{
+       if(err){
+           //display error page
+       }
+       else{
+           res.redirect("/admin");
+       }
+   })
 
 }
 

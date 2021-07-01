@@ -9,7 +9,7 @@ const loginController=(req,res)=>{
     let nameIzForme=req.body.name;
     let passIzForme=req.body.password;
 
-    db.users.find({firs_name:nameIzForme,password:passIzForme},(err,docs)=>{
+    db.users.find({first_name:nameIzForme,password:passIzForme},(err,docs)=>{
         if(err){
             console.log("greska");
             res.redirect("/");
@@ -29,6 +29,7 @@ const loginController=(req,res)=>{
                 res.redirect("/");
                 } }  
             else{
+                //podaci nisu tacni
                 res.redirect("/");
             }
             }
