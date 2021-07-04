@@ -395,7 +395,7 @@
                                     <div class="p-2"><img src="../../assets/images/users/1.jpg" alt="user" width="50"
                                         class="rounded-circle"></div>
                                     <div class="comment-text w-100">
-                                        <h6 class="font-medium"><% proizvod.name %> </h6>
+                                        <h6 class="font-medium"><%= proizvodi[i].name+" "+proizvodi[i].price%> </h6>
                                         <div class="comment-footer">
                                             <span class="text-muted float-end">April 14, 2021</span>
                                             <button type="button" class="btn btn-cyan btn-sm text-white">Edit</button>
@@ -665,7 +665,7 @@
                                             <span class="text-muted float-end">April 14, 2021</span>
                                             <button type="button" class="btn btn-cyan btn-sm text-white">Edit</button>
                                             <button type="button" class="btn btn-success btn-sm text-white">Publish</button>
-                                            <button type="button" class="btn btn-danger btn-sm text-white">Delete</button>
+                                            <button type="button" class="btn btn-danger btn-sm delete-user-btn text-white" data-id="<% savetnici[i]._id %>">>Delete</button>
                                         </div>
                                     </div>
                                 </div>
@@ -690,7 +690,7 @@
                                             <span class="text-muted float-end">April 14, 2021</span>
                                             <button type="button" class="btn btn-cyan btn-sm text-white">Edit</button>
                                             <button type="button" class="btn btn-success btn-sm text-white">Publish</button>
-                                            <button type="button" class="btn btn-danger btn-sm text-white">Delete</button>
+                                            <button type="button" class="btn btn-danger btn-sm delete-proizvod-btn text-white" data-id="proizvodi[i]._id">Delete</button>
                                         </div>
                                     </div>
                                 </div>
@@ -926,6 +926,20 @@
             if(potvrda){
                 $.ajax({
                     url:`/admin/delete/user/${id}`
+                })
+                .then(res=>{
+                    if(res == "Ok"){
+                        window.location.href="/admin";
+                    }
+                })
+            }
+        })
+        $(".delete-proizvod-btn").on('click',function(){
+            let id=$(this).attr("data-id");
+            let potvrda=confirm("Da li ste sigurni?");
+            if(potvrda){
+                $.ajax({
+                    url:`/admin/delete/proizvod/${id}`
                 })
                 .then(res=>{
                     if(res == "Ok"){
