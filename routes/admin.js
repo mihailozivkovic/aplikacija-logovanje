@@ -28,6 +28,11 @@ router.get("/delete/user/:userId",require("../controllers/admin/deleteUserContro
 
 router.post("/create/proizvod/save",require("../controllers/admin/createProizvod"));
 
+//savetnik
+
+//router.get("/savetnik/termini/:name",require("../controllers/admin/savetnikTerminiController"));
+
+
 function checkAdmin(req,res,next){
     let user=req.session.user;
     if(user){
