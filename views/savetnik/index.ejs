@@ -15,11 +15,8 @@
     <!-- Favicon icon -->
     <link rel="icon" type="image/png" sizes="16x16" href="../../assets/images/favicon.png">
     <!-- Custom CSS -->
-    <link rel="stylesheet" type="text/css" href="../../assets/libs/select2/dist/css/select2.min.css">
-    <link rel="stylesheet" type="text/css" href="../../assets/libs/jquery-minicolors/jquery.minicolors.css">
-    <link rel="stylesheet" type="text/css"
-        href="../../assets/libs/bootstrap-datepicker/dist/css/bootstrap-datepicker.min.css">
-    <link rel="stylesheet" type="text/css" href="../../assets/libs/quill/dist/quill.snow.css">
+    <link href="../../assets/libs/flot/css/float-chart.css" rel="stylesheet">
+    <!-- Custom CSS -->
     <link href="../../dist/css/style.min.css" rel="stylesheet">
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -66,7 +63,7 @@
                         <!-- Logo text -->
                         <span class="logo-text">
                             <!-- dark Logo text -->
-                            <img src="../../assets/images/logo-text.png" alt="homepage" class="light-logo" />
+                            <span></span>
 
                         </span>
                         <!-- Logo icon -->
@@ -101,11 +98,28 @@
                         <!-- ============================================================== -->
                         <!-- create new -->
                         <!-- ============================================================== -->
-                        <
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                <span class="d-none d-md-block">Create New <i class="fa fa-angle-down"></i></span>
+                                <span class="d-block d-md-none"><i class="fa fa-plus"></i></span>
+                            </a>
+                            <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                                <li><a class="dropdown-item" href="#">Action</a></li>
+                                <li><a class="dropdown-item" href="#">Another action</a></li>
+                                <li><hr class="dropdown-divider"></li>
+                                <li><a class="dropdown-item" href="#">Something else here</a></li>
+                            </ul>
+                        </li>
                         <!-- ============================================================== -->
                         <!-- Search -->
                         <!-- ============================================================== -->
-                       
+                        <li class="nav-item search-box"> <a class="nav-link waves-effect waves-dark"
+                                href="javascript:void(0)"><i class="ti-search"></i></a>
+                            <form class="app-search position-absolute">
+                                <input type="text" class="form-control" placeholder="Search &amp; enter"> <a
+                                    class="srh-btn"><i class="ti-close"></i></a>
+                            </form>
+                        </li>
                     </ul>
                     <!-- ============================================================== -->
                     <!-- Right side toggle and nav items -->
@@ -237,11 +251,104 @@
                 <nav class="sidebar-nav">
                     <ul id="sidebarnav" class="pt-4">
                         <li class="sidebar-item"> <a class="sidebar-link waves-effect waves-dark sidebar-link"
-                                href="/operater" aria-expanded="false"><i class="mdi mdi-view-dashboard"></i><span
+                                href="index.html" aria-expanded="false"><i class="mdi mdi-view-dashboard"></i><span
                                     class="hide-menu">Dashboard</span></a></li>
                         <li class="sidebar-item"> <a class="sidebar-link waves-effect waves-dark sidebar-link"
                                 href="charts.html" aria-expanded="false"><i class="mdi mdi-chart-bar"></i><span
-                                    class="hide-menu">Termini <span><%= brojTermina %> </span></span></a></li>
+                                    class="hide-menu">Charts</span></a></li>
+                        <li class="sidebar-item"> <a class="sidebar-link waves-effect waves-dark sidebar-link"
+                                href="widgets.html" aria-expanded="false"><i class="mdi mdi-chart-bubble"></i><span
+                                    class="hide-menu">Widgets</span></a></li>
+                        <li class="sidebar-item"> <a class="sidebar-link waves-effect waves-dark sidebar-link"
+                                href="tables.html" aria-expanded="false"><i class="mdi mdi-border-inside"></i><span
+                                    class="hide-menu">Tables</span></a></li>
+                        <li class="sidebar-item"> <a class="sidebar-link waves-effect waves-dark sidebar-link"
+                                href="grid.html" aria-expanded="false"><i class="mdi mdi-blur-linear"></i><span
+                                    class="hide-menu">Full Width</span></a></li>
+                        <li class="sidebar-item"> <a class="sidebar-link has-arrow waves-effect waves-dark"
+                                href="javascript:void(0)" aria-expanded="false"><i class="mdi mdi-receipt"></i><span
+                                    class="hide-menu">Forms </span></a>
+                            <ul aria-expanded="false" class="collapse  first-level">
+                                <li class="sidebar-item"><a href="form-basic.html" class="sidebar-link"><i
+                                            class="mdi mdi-note-outline"></i><span class="hide-menu"> Form Basic
+                                        </span></a></li>
+                                <li class="sidebar-item"><a href="form-wizard.html" class="sidebar-link"><i
+                                            class="mdi mdi-note-plus"></i><span class="hide-menu"> Form Wizard
+                                        </span></a></li>
+                            </ul>
+                        </li>
+                        <li class="sidebar-item"> <a class="sidebar-link waves-effect waves-dark sidebar-link"
+                                href="pages-buttons.html" aria-expanded="false"><i
+                                    class="mdi mdi-relative-scale"></i><span class="hide-menu">Buttons</span></a></li>
+                        <li class="sidebar-item"> <a class="sidebar-link has-arrow waves-effect waves-dark"
+                                href="javascript:void(0)" aria-expanded="false"><i class="mdi mdi-face"></i><span
+                                    class="hide-menu">Icons </span></a>
+                            <ul aria-expanded="false" class="collapse  first-level">
+                                <li class="sidebar-item"><a href="icon-material.html" class="sidebar-link"><i
+                                            class="mdi mdi-emoticon"></i><span class="hide-menu"> Material Icons
+                                        </span></a></li>
+                                <li class="sidebar-item"><a href="icon-fontawesome.html" class="sidebar-link"><i
+                                            class="mdi mdi-emoticon-cool"></i><span class="hide-menu"> Font Awesome
+                                            Icons </span></a></li>
+                            </ul>
+                        </li>
+                        <li class="sidebar-item"> <a class="sidebar-link waves-effect waves-dark sidebar-link"
+                                href="pages-elements.html" aria-expanded="false"><i class="mdi mdi-pencil"></i><span
+                                    class="hide-menu">Elements</span></a></li>
+                        <li class="sidebar-item"> <a class="sidebar-link has-arrow waves-effect waves-dark"
+                                href="javascript:void(0)" aria-expanded="false"><i
+                                    class="mdi mdi-move-resize-variant"></i><span class="hide-menu">Addons </span></a>
+                            <ul aria-expanded="false" class="collapse  first-level">
+                                <li class="sidebar-item"><a href="index2.html" class="sidebar-link"><i
+                                            class="mdi mdi-view-dashboard"></i><span class="hide-menu"> Dashboard-2
+                                        </span></a></li>
+                                <li class="sidebar-item"><a href="pages-gallery.html" class="sidebar-link"><i
+                                            class="mdi mdi-multiplication-box"></i><span class="hide-menu"> Gallery
+                                        </span></a></li>
+                                <li class="sidebar-item"><a href="pages-calendar.html" class="sidebar-link"><i
+                                            class="mdi mdi-calendar-check"></i><span class="hide-menu"> Calendar
+                                        </span></a></li>
+                                <li class="sidebar-item"><a href="pages-invoice.html" class="sidebar-link"><i
+                                            class="mdi mdi-bulletin-board"></i><span class="hide-menu"> Invoice
+                                        </span></a></li>
+                                <li class="sidebar-item"><a href="pages-chat.html" class="sidebar-link"><i
+                                            class="mdi mdi-message-outline"></i><span class="hide-menu"> Chat Option
+                                        </span></a></li>
+                            </ul>
+                        </li>
+                        <li class="sidebar-item"> <a class="sidebar-link has-arrow waves-effect waves-dark"
+                                href="javascript:void(0)" aria-expanded="false"><i class="mdi mdi-account-key"></i><span
+                                    class="hide-menu">Authentication </span></a>
+                            <ul aria-expanded="false" class="collapse  first-level">
+                                <li class="sidebar-item"><a href="authentication-login.html" class="sidebar-link"><i
+                                            class="mdi mdi-all-inclusive"></i><span class="hide-menu"> Login </span></a>
+                                </li>
+                                <li class="sidebar-item"><a href="authentication-register.html" class="sidebar-link"><i
+                                            class="mdi mdi-all-inclusive"></i><span class="hide-menu"> Register
+                                        </span></a></li>
+                            </ul>
+                        </li>
+                        <li class="sidebar-item"> <a class="sidebar-link has-arrow waves-effect waves-dark"
+                                href="javascript:void(0)" aria-expanded="false"><i class="mdi mdi-alert"></i><span
+                                    class="hide-menu">Errors </span></a>
+                            <ul aria-expanded="false" class="collapse  first-level">
+                                <li class="sidebar-item"><a href="error-403.html" class="sidebar-link"><i
+                                            class="mdi mdi-alert-octagon"></i><span class="hide-menu"> Error 403
+                                        </span></a></li>
+                                <li class="sidebar-item"><a href="error-404.html" class="sidebar-link"><i
+                                            class="mdi mdi-alert-octagon"></i><span class="hide-menu"> Error 404
+                                        </span></a></li>
+                                <li class="sidebar-item"><a href="error-405.html" class="sidebar-link"><i
+                                            class="mdi mdi-alert-octagon"></i><span class="hide-menu"> Error 405
+                                        </span></a></li>
+                                <li class="sidebar-item"><a href="error-500.html" class="sidebar-link"><i
+                                            class="mdi mdi-alert-octagon"></i><span class="hide-menu"> Error 500
+                                        </span></a></li>
+                            </ul>
+                        </li>
+                        <li class="sidebar-item p-3">
+                            <a href="https://github.com/wrappixel/matrix-admin-bt5" target="_blank" class="w-100 btn btn-cyan d-flex align-items-center text-white"><i class="mdi mdi-cloud-download font-20 me-2"></i>Download Free</a>
+                        </li>
                     </ul>
                 </nav>
                 <!-- End Sidebar navigation -->
@@ -255,19 +362,22 @@
         <!-- Page wrapper  -->
         <!-- ============================================================== -->
         <div class="page-wrapper">
-            <form action="/operater/newTermin" method="POST">
             <!-- ============================================================== -->
             <!-- Bread crumb and right sidebar toggle -->
             <!-- ============================================================== -->
             <div class="page-breadcrumb">
+                
                 <div class="row">
                     <div class="col-12 d-flex no-block align-items-center">
-                        <h4 class="page-title">Novi termin</h4>
+                        <h4 class="page-title">Dashboard</h4>
                         <div class="ms-auto text-end">
-                            <button type="submit" class="btn btn-primary">Submit</button>
+                            <nav aria-label="breadcrumb">
+                                
+                            </nav>
                         </div>
                     </div>
                 </div>
+                
             </div>
             <!-- ============================================================== -->
             <!-- End Bread crumb and right sidebar toggle -->
@@ -277,184 +387,51 @@
             <!-- ============================================================== -->
             <div class="container-fluid">
                 <!-- ============================================================== -->
-                <!-- Start Page Content -->
+                <!-- Sales Cards  -->
                 <!-- ============================================================== -->
                 <div class="row">
-                    <div class="col-md-6">
-                        <div class="card">
-                            
-                                <div class="card-body">
-                                    <h4 class="card-title">Info stranka</h4>
-                                    <div class="form-group row">
-                                        <label for="fname"
-                                            class="col-sm-3 text-end control-label col-form-label">Ime stranke</label>
-                                        <div class="col-sm-9">
-                                            <input type="text" class="form-control" name="ime_stranke" id="fname"
-                                                placeholder="Ime stranke">
-                                        </div>
-                                    </div>
-                                    <div class="form-group row">
-                                        <label for="lname" class="col-sm-3 text-end control-label col-form-label">Prezime stranke
-                                            </label>
-                                        <div class="col-sm-9">
-                                            <input type="text" class="form-control" name="prezime_stranke" id="lname"
-                                                placeholder="Prezime stranke">
-                                        </div>
-                                    </div>
-                                    <div class="form-group row">
-                                        <label for="lname"
-                                            class="col-sm-3 text-end control-label col-form-label">Godiste stranke</label>
-                                        <div class="col-sm-9">
-                                            <input type="password" name="godiste_stranke" class="form-control" id="lname"
-                                                placeholder="Godiste stranke">
-                                        </div>
-                                    </div>
-                                    <div class="form-group row">
-                                        <label for="email1"
-                                            class="col-sm-3 text-end control-label col-form-label">Ime supruznika</label>
-                                        <div class="col-sm-9">
-                                            <input type="text" class="form-control" name="ime_supruznika" id="email1"
-                                                placeholder="Ime supruznika">
-                                        </div>
-                                    </div>
-                                    <div class="form-group row">
-                                        <label for="cono1"
-                                            class="col-sm-3 text-end control-label col-form-label">Prezime supruznika</label>
-                                        <div class="col-sm-9">
-                                            <input type="text" class="form-control" id="cono1" name="prezime_supruznika"
-                                                placeholder="Prezime supruznika">
-                                        </div>
-                                    </div>
-                                    <div class="form-group row">
-                                        <label for="cono1"
-                                            class="col-sm-3 text-end control-label col-form-label">Godiste supruznika</label>
-                                        <div class="col-sm-9">
-                                            <input type="text" class="form-control" id="cono1" name="godiste_supruznika"
-                                                placeholder="Godiste supruznika">
-                                        </div>
-                                    </div>
-                                    <div class="form-group row">
-                                        <label for="">Telefon</label>
-                                        <input type="text" class="form-control" name="fiksni_telefon" placeholder="Fiksni telefon">
-                                    </div>
-                                    <div class="form-group row">
-                                        <label for="">Mobilni telefon</label>
-                                        <input type="text" class="form-control" name="mobilni_telefon" placeholder="Mobilni telefon">
-                                    </div>
-                                    <div class="form-group row">
-                                        <label for="">Adresa</label>
-                                        <input type="text" class="form-control" name="adresa" placeholder="Adresa">
-                                    </div>
+                    <!-- Column -->
+                    <% if(termini.length==0){ %>
+                        <div class="col-md-6 col-lg-2 col-xlg-3">
+                            <div class="card card-hover">
+                                <div class="box bg-cyan text-center">
+                                    <h1 class="font-light text-white">
+                                        Nema aktivnih termina
+                                    </h1>
                 
                                 </div>
-                                <div class="border-top">
-                                    <div class="card-body">
-                                        
-                                    </div>
-                                </div>
-                            
-                        </div>
-                        
-                        
-
-                    </div>
-                    <div class="col-md-6">
-                        <div class="card">
-                            <div class="card-body">
-                                <h5 class="card-title mb-0">Termin info</h5>
-                                <div class="form-group mt-3">
-                                    <label>Datum<small class="text-muted"> dd/mm/yyyy</small></label>
-                                    <input type="text" class="form-control date-inputmask" id="date-mask" name="datum_zakazivanja"
-                                        placeholder="Datum temina">
-                                </div>
-                                <div class="form-group mt-3">
-                                    <label>Vreme<small class="text-muted"> sat/minut/am-pm</small></label>
-                                    <input type="time" class="form-control date-inputmask" id="date-mask" name="vreme_zakazivanja"
-                                       placeholder="" >
-                                </div>
-                                <div class="form-group">
-                                    <label>Phone<small class="text-muted"> (999) 999-9999</small></label>
-                                    <input type="text" class="form-control phone-inputmask" id="phone-mask"
-                                        placeholder="Enter Phone Number">
-                                </div>
-                                <div class="form-group row">
-                                    <label class="col-md-3 m-t-15">Savetnik</label>
-                                    <div class="col-md-9">
-                                        <select name="savetnik" class="form-control">
-                                            <% for(let i=0;i<savetnici.length;i++){ %>
-                                            <option value="<%= savetnici[i].first_name+" "+savetnici[i].last_name %>"><%= savetnici[i].first_name+" "+savetnici[i].last_name %></option>
-                                            <% } %>
-                                        </select>
-                                    </div>
-                                </div>
-                                <div class="form-group row">
-                                    <label class="col-md-3 m-t-15">Mesto rada</label>
-                                    <div class="col-md-9">
-                                        <select name="grad" class="form-control">
-                                            <% for(let i=0;i<gradovi.length;i++){ %>
-                                            <option value="<%=gradovi.name %>"><%=gradovi[i].name %></option>
-                                            <% } %>
-                                        </select>
-                                        
-                                    </div>
-                                </div>
                             </div>
                         </div>
-                        <div class="card">
-                            <div class="card-body">
-                                <h5 class="card-title">Dodatno</h5>
-                                <div class="row mb-3 align-items-center">
-                                    <div class="col-lg-3 col-md-12 text-end">
-                                        <span>Deca</span>
-                                    </div>
-                                    <div class="col-lg-9 col-md-12">
-                                        <input type="text" 
-                                            class="form-control" name="deca"
-                                            placeholder="Imena dece" >
-                                    </div>
-                                </div>
-                                <div class="row mb-3 align-items-center">
-                                    <div class="col-lg-3 col-md-12 text-end">
-                                        <span>Operacije</span>
-                                    </div>
-                                    <div class="col-lg-9 col-md-12">
-                                        <input type="text" 
-                                            class="form-control" name="operacije"
-                                            placeholder="Operacije" >
-                                    </div>
-                                </div>
-                                <div class="row mb-3 align-items-center">
-                                    <div class="col-lg-3 col-md-12 text-end">
-                                        <span>Terapija</span>
-                                    </div>
-                                    <div class="col-lg-9 col-md-12">
-                                        <input type="text" 
-                                            class="form-control" name="terapija"
-                                            placeholder="Terapija" >
-                                    </div>
-                                </div>
+                        <% } %>
+                    <% for(let i=0;i<termini.length;i++){ %>
+                    <div class="col-md-6 col-lg-2 col-xlg-3">
+                        <div class="card card-hover">
+                            <a href="/savetnik/termin/<%= termini[i]._id %>">
+                            <div class="box bg-cyan text-center">
+                                <h1 class="font-light text-white">
+                                    <%= termini[i].ime_stranke+" "+termini[i].prezime_stranke  %>
+                                </h1>
+                                <h6 class="text-white"><%= termini[i].datum_zakazivanja+ " "+termini[i].vreme_zakazivanja %></h6>
                             </div>
+                        </a>
                         </div>
                     </div>
-                </div>
-                <!-- editor -->
-                <div class="row">
-                    <div class="col-12">
-                        <div class="card">
-                            <h4 class="card-title">Napomena</h4>
-                            <input type="text" class="form-controll" name="napomena">
-                        </div>
-                    </div>
+                    <% } %>
+                    <!-- Column -->
                 </div>
                 <!-- ============================================================== -->
-                <!-- End PAge Content -->
+                <!-- Sales chart -->
+                <!-- ============================================================== -->
+                
+                <!-- ============================================================== -->
+                <!-- Sales chart -->
                 <!-- ============================================================== -->
                 <!-- ============================================================== -->
-                <!-- Right sidebar -->
+                <!-- Recent comment and chats -->
                 <!-- ============================================================== -->
-                <!-- .right-sidebar -->
+                
                 <!-- ============================================================== -->
-                <!-- End Right sidebar -->
+                <!-- Recent comment and chats -->
                 <!-- ============================================================== -->
             </div>
             <!-- ============================================================== -->
@@ -467,7 +444,6 @@
                 All Rights Reserved by Matrix-admin. Designed and Developed by <a
                     href="https://www.wrappixel.com">WrapPixel</a>.
             </footer>
-            </form>
             <!-- ============================================================== -->
             <!-- End footer -->
             <!-- ============================================================== -->
@@ -485,7 +461,6 @@
     <script src="../../assets/libs/jquery/dist/jquery.min.js"></script>
     <!-- Bootstrap tether Core JavaScript -->
     <script src="../../assets/libs/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
-    <!-- slimscrollbar scrollbar JavaScript -->
     <script src="../../assets/libs/perfect-scrollbar/dist/perfect-scrollbar.jquery.min.js"></script>
     <script src="../../assets/extra-libs/sparkline/sparkline.js"></script>
     <!--Wave Effects -->
@@ -494,60 +469,18 @@
     <script src="../../dist/js/sidebarmenu.js"></script>
     <!--Custom JavaScript -->
     <script src="../../dist/js/custom.min.js"></script>
-    <!-- This Page JS -->
-    <script src="../../assets/libs/inputmask/dist/min/jquery.inputmask.bundle.min.js"></script>
-    <script src="../../dist/js/pages/mask/mask.init.js"></script>
-    <script src="../../assets/libs/select2/dist/js/select2.full.min.js"></script>
-    <script src="../../assets/libs/select2/dist/js/select2.min.js"></script>
-    <script src="../../assets/libs/jquery-asColor/dist/jquery-asColor.min.js"></script>
-    <script src="../../assets/libs/jquery-asGradient/dist/jquery-asGradient.js"></script>
-    <script src="../../assets/libs/jquery-asColorPicker/dist/jquery-asColorPicker.min.js"></script>
-    <script src="../../assets/libs/jquery-minicolors/jquery.minicolors.min.js"></script>
-    <script src="../../assets/libs/bootstrap-datepicker/dist/js/bootstrap-datepicker.min.js"></script>
-    <script src="../../assets/libs/quill/dist/quill.min.js"></script>
-    <script>
-        //***********************************//
-        // For select 2
-        //***********************************//
-        $(".select2").select2();
+    <!--This page JavaScript -->
+    <!-- <script src="../../dist/js/pages/dashboards/dashboard1.js"></script> -->
+    <!-- Charts js Files -->
+    <script src="../../assets/libs/flot/excanvas.js"></script>
+    <script src="../../assets/libs/flot/jquery.flot.js"></script>
+    <script src="../../assets/libs/flot/jquery.flot.pie.js"></script>
+    <script src="../../assets/libs/flot/jquery.flot.time.js"></script>
+    <script src="../../assets/libs/flot/jquery.flot.stack.js"></script>
+    <script src="../../assets/libs/flot/jquery.flot.crosshair.js"></script>
+    <script src="../../assets/libs/flot.tooltip/js/jquery.flot.tooltip.min.js"></script>
+    <script src="../../dist/js/pages/chart/chart-page-init.js"></script>
 
-        /*colorpicker*/
-        $('.demo').each(function () {
-            //
-            // Dear reader, it's actually very easy to initialize MiniColors. For example:
-            //
-            //  $(selector).minicolors();
-            //
-            // The way I've done it below is just for the demo, so don't get confused
-            // by it. Also, data- attributes aren't supported at this time...they're
-            // only used for this demo.
-            //
-            $(this).minicolors({
-                control: $(this).attr('data-control') || 'hue',
-                position: $(this).attr('data-position') || 'bottom left',
-
-                change: function (value, opacity) {
-                    if (!value) return;
-                    if (opacity) value += ', ' + opacity;
-                    if (typeof console === 'object') {
-                        console.log(value);
-                    }
-                },
-                theme: 'bootstrap'
-            });
-
-        });
-        /*datwpicker*/
-        jQuery('.mydatepicker').datepicker();
-        jQuery('#datepicker-autoclose').datepicker({
-            autoclose: true,
-            todayHighlight: true
-        });
-        var quill = new Quill('#editor', {
-            theme: 'snow'
-        });
-
-    </script>
 </body>
 
 </html>
